@@ -3,7 +3,7 @@
   <head>
       <title>epriestley</title>
   </head>
-  <body style="background: #333333;">
+  <body style="background: #333;">
 
   </body>
 </html>
