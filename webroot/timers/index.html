@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      var intervals = [];
+      var count = 0;
+      var start;
+
+      function poll() {
+        var sheets = document.styleSheets,
+          ii = sheets.length;
+
+        while (ii--) {
+          var link = sheets[ii],
+            owner = link.ownerNode || link.owningElement;
+        }
+
+        ++count;
+      }
+
+      function end() {
+        document.getElementById('status').innerHTML =
+          count + " calls in " + (new Date().getTime() - start) + "ms";
+
+        for (var ii = 0; ii < intervals.length; ii++) {
+          clearInterval(intervals[ii]);
+        }
+      }
+
+      function go() {
+        for (var ii = 0; ii < 10000; ii++) {
+          intervals.push(setInterval(poll, 20));
+        }
+        setTimeout(end, 3000);
+        start = new Date().getTime();
+      }
+    </script>
+    <link rel="stylesheet" type="text/css" src="a.css" />
+    <link rel="stylesheet" type="text/css" src="b.css" />
+    <link rel="stylesheet" type="text/css" src="c.css" />
+    <link rel="stylesheet" type="text/css" src="d.css" />
+    <link rel="stylesheet" type="text/css" src="e.css" />
+    <link rel="stylesheet" type="text/css" src="f.css" />
+    <link rel="stylesheet" type="text/css" src="g.css" />
+    <link rel="stylesheet" type="text/css" src="h.css" />
+    <link rel="stylesheet" type="text/css" src="i.css" />
+    <link rel="stylesheet" type="text/css" src="j.css" />
+  </head>
+  <body>
+    <div id="status">ready</div>
+    <button onclick="go()">Click, then wait 3 seconds</button>
+  </body>
+</html>
+
